@@ -1,0 +1,18 @@
+package com.bms.controller;
+
+import com.bms.entity.Account;
+import com.bms.service.AccountService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/account")
+public class AccountController {
+    @Autowired
+    private AccountService accountService;
+    //Create an account
+    @PostMapping
+    public Account createAccount(@RequestBody Account account){
+        return accountService.CreateAccount(account);
+    }
+}
